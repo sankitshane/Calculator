@@ -81,8 +81,13 @@ header h2 {
   border-color: #aaa;
 }
 
+#operator:nth-child(5){
+    margin-left: 352px;
+}
+
 #number_pad {
   display: inline-block;
+  margin-top: -84px;
 }
 
 .para {
