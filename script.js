@@ -15,19 +15,19 @@ var math_it_up = {
 
 function calculate(array) {
   var oper = ["÷","×","+","-"];
-
-
   for(var i=0;i< oper.length;i++) {
-    for(var j =0;j< array.length;j++) {
-      if(array.length === 1) {
-        showresults = true;
-        return array[0];
-      }
-      if(Number.isFinite(j) === false) {
-        array.splice(j-1,3,toString(math_it_up[oper[i]](Number(array[j-1]),Number(array[j+1]))));
-        break;
-        break;
-      }
+    for(var j =1;j< array.length;j = j+2) {
+      //if(array.length === 1) {
+        //showresults = true;
+        //return array[0];
+      //}
+      if(oper[i] === array[j]){
+         array.splice(j-1,3,math_it_up[oper[i]](Number(array[j-1]),Number(array[j+1])));
+         return array;
+       }
+       else {
+         continue;
+       }
     }
   }
 }
