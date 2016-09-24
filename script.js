@@ -40,7 +40,7 @@ for(var i= 0;i <numbers.length;i++) {
   numbers[i].addEventListener('click',function(e){
     current_val = input.innerHTML;
 
-    last_elem = current_val[current_val.length -1];
+    last_elem = current_val[current_val.length -2];
 
     if(e.target.innerHTML === "C"){
       input.innerHTML = "";
@@ -49,7 +49,7 @@ for(var i= 0;i <numbers.length;i++) {
     if(showresults === false) {
       input.innerHTML += e.target.innerHTML;
     }
-    else if(showresults === true && last_elem === "+" || last_elem === "-" || last_elem === "×" || last_elem === "÷" || last_elem === "e") {
+    else if(showresults === true && (last_elem === "+" || last_elem === "-" || last_elem === "×" || last_elem === "÷" || last_elem === "e")) {
       showresults = false;
       input.innerHTML += e.target.innerHTML;
     }
