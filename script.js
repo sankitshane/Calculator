@@ -17,18 +17,22 @@ function calculate(array) {
   var oper = ["÷","×","+","-"];
   for(var i=0;i< oper.length;i++) {
     for(var j =1;j< array.length;j = j+2) {
-      //if(array.length === 1) {
-        //showresults = true;
-        //return array[0];
-      //}
+
       if(oper[i] === array[j]){
-         array.splice(j-1,3,math_it_up[oper[i]](Number(array[j-1]),Number(array[j+1])));
-         return array;
-       }
+         array.splice(j-1,3,math_it_up[oper[i]](Number(array[j-1]),Number(array[j+1])).toString());
+         if(array.length === 1) {
+           showresults = true;
+           input.innerHTML = array[0];
+         }
+      }
        else {
          continue;
        }
     }
+  }
+
+  if(array.length > 1){
+    calculate(array);
   }
 }
 
@@ -80,9 +84,5 @@ for(var i= 0;i <operator.length;i++) {
 result.addEventListener('click',function() {
   var inputString = input.innerHTML;
   var array = inputString.split(" ");
-  //var num = inputString.split(/\+|\-|\×|\÷/g);
-  //var oper = inputString.replace(/[0-9]|\./g, "").split("");
-  input.innerHTML = calculate(array);
-
-
+  calculate(array);
 });
