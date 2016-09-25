@@ -1,3 +1,4 @@
+//Store all the elements in javascript variable
 var input = document.getElementById('input');
 var operator = document.querySelectorAll('#operator div');
 var numbers = document.querySelectorAll('.numbers div');
@@ -5,6 +6,8 @@ var result = document.getElementById('result');
 var currentval;
 var showresults = false
 
+//math_it_up is the constructor function that takes variables and applies some
+//mathematical operations to it, then return it.
 var math_it_up = {
     '÷':function(x,y){return x/y},
     '×':function(x,y){return x*y},
@@ -13,9 +16,11 @@ var math_it_up = {
     'e':function(x){return x * 2.71828}
   };
 
-
+//calculate is the function that is called when equal to event in clicked
+//It runs through the input, searching and applying all the operation in order
+//of there execution.Until the input is of length one.
 function calculate(array) {
-  var oper = ["÷","×","+","-","e"];
+  var oper = ["e","÷","×","+","-"];
   for(var i=0;i< oper.length;i++) {
     for(var j =1;j< array.length;j = j+2) {
 
@@ -38,6 +43,7 @@ function calculate(array) {
   }
 }
 
+//Gives click event handler to all the numbers.
 for(var i= 0;i <numbers.length;i++) {
   numbers[i].addEventListener('click',function(e){
     current_val = input.innerHTML;
@@ -67,6 +73,7 @@ for(var i= 0;i <numbers.length;i++) {
   });
 }
 
+//Gives click event handler to all the operators.
 for(var i= 0;i <operator.length;i++) {
   operator[i].addEventListener('click',function(e){
     current_val = input.innerHTML;
@@ -85,6 +92,7 @@ for(var i= 0;i <operator.length;i++) {
   });
 }
 
+//Gives click event handler to equals to.
 result.addEventListener('click',function() {
   var inputString = input.innerHTML;
   var array = inputString.split(" ");
@@ -92,6 +100,5 @@ result.addEventListener('click',function() {
     if(array[i] === "")
       array.splice(i,1);
   }
-  console.log(array);
   calculate(array);
 });
