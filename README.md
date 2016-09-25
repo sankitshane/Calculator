@@ -7,8 +7,8 @@
 
 ##Functionality
 
- *Addition
- *Subtraction
- *Multiplication
- *Division
- *Exponential
+ * Addition
+ * Subtraction
+ * Multiplication
+ * Division
+ * Exponential
